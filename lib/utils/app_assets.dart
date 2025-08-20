@@ -38,4 +38,6 @@ class AppAssets {
   static const String usernameIconUpdateProfile =
       'assets/images/username_icon_updateprofile.png';
   static const String watchListIcon = 'assets/images/watch_list_icon.png';
+  static const String egyptFlag = 'assets/images/egypt.png';
+  static const String usFlag = 'assets/images/US.png';
 }

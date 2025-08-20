@@ -17,4 +17,8 @@ class AppStyles {
       fontSize: 16, color: AppColors.yellowColor, fontWeight: FontWeight.w400);
   static TextStyle regular20BYellow = GoogleFonts.inter(
       fontSize: 20, color: AppColors.yellowColor, fontWeight: FontWeight.w400);
+  static TextStyle regular16Red = GoogleFonts.roboto(
+      color: AppColors.redColor, fontSize: 16, fontWeight: FontWeight.w400);
+  static TextStyle black16Yellow = GoogleFonts.roboto(
+      color: AppColors.yellowColor, fontSize: 14, fontWeight: FontWeight.w900);
 }
