@@ -7,6 +7,8 @@ class AppStyles {
       fontSize: 16, color: AppColors.blackColor, fontWeight: FontWeight.w400);
   static TextStyle regular20Black = GoogleFonts.inter(
       fontSize: 20, color: AppColors.blackColor, fontWeight: FontWeight.w400);
+      static TextStyle regular15Black = GoogleFonts.inter(
+      fontSize: 16, color: AppColors.blackColor, fontWeight: FontWeight.w400);
 
   static TextStyle regular16White = GoogleFonts.inter(
       fontSize: 16, color: AppColors.whiteColor, fontWeight: FontWeight.w400);

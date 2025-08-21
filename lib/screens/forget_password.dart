@@ -11,10 +11,10 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     var height = MediaQuery.of(context).size.height;
+    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-       backgroundColor: Colors.black,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.transparentColor,
@@ -29,7 +29,7 @@ class ForgetPassword extends StatelessWidget {
       ),
       body: SingleChildScrollView(
         child: Column(
-           crossAxisAlignment: CrossAxisAlignment.stretch,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 alignment: Alignment.center,
@@ -63,8 +63,7 @@ class ForgetPassword extends StatelessWidget {
                 child: CustomElevatedButton(
                   onPressed: () {
                     // todo : change avatar profile
-                   
-                     showModalBottomSheet(
+                    showModalBottomSheet(
                       
                       backgroundColor:Colors.black,
                       context: context,
