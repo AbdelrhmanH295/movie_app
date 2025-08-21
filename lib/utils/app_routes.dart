@@ -1,0 +1,8 @@
+import 'package:movie_app/screens/login_screen.dart';
+
+class AppRoutes {
+  static const String loginRouteName = 'login_screen';
+  static const String forgetScreenRouteName = 'forget_screen';
+  static const String registerRouteName = 'register_screen';
+  static const String updateProfileRouteName = 'updateProfile_screen';
+}
