@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/screens/forget_password.dart';
 import 'package:movie_app/screens/profile_update_screen.dart';
 import 'package:movie_app/screens/register_screen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home: RegisterScreen(),
+      home: ForgetPassword(),
     );
   }
 }

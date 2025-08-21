@@ -10,10 +10,10 @@ class AppStyles {
 
   static TextStyle regular16White = GoogleFonts.inter(
       fontSize: 16, color: AppColors.whiteColor, fontWeight: FontWeight.w400);
+  static TextStyle regular20White = GoogleFonts.inter(
+      fontSize: 20, color: AppColors.whiteColor, fontWeight: FontWeight.w400);
   static TextStyle regular14White = GoogleFonts.inter(
       fontSize: 14, color: AppColors.whiteColor, fontWeight: FontWeight.w400);
-  static TextStyle regular20BWhite = GoogleFonts.inter(
-      fontSize: 20, color: AppColors.whiteColor, fontWeight: FontWeight.w400);
 
   static TextStyle regular16Yellow = GoogleFonts.inter(
       fontSize: 16, color: AppColors.yellowColor, fontWeight: FontWeight.w400);

@@ -1,4 +1,5 @@
 class AppAssets {
+   static const String gamer1 = 'assets/images/gamer1.png';
   static const String avatar1Image = 'assets/images/avatar1_image.png';
   static const String avatar2Image = 'assets/images/avatar2_image.png';
   static const String avatar3Image = 'assets/images/avatar3_image.png';

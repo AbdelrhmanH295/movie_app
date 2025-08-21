@@ -13,7 +13,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget? prefixIcon;
   Widget? suffixIcon;
   OnValidator validator;
-  TextEditingController? controller;
+  TextEditingController ? controller;
   TextInputType keyBoardType;
   bool obsecureText;
   int? maxLines;
@@ -42,6 +42,7 @@ class CustomTextFormField extends StatelessWidget {
       style: TextStyle(color: Theme.of(context).canvasColor),
       maxLines: maxLines ?? 1,
       decoration: InputDecoration(
+        
         enabledBorder: buildDecorationBorder(
           colorBorderSide: colorBorderSide,
         ),
