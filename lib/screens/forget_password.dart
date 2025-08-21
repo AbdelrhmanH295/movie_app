@@ -16,53 +16,48 @@ class ForgetPassword extends StatelessWidget {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: AppColors.yellowColor),
         centerTitle: true,
         backgroundColor: AppColors.transparentColor,
-        leading: Icon(
-          Icons.arrow_back,
-          color: AppColors.yellowColor,
-        ),
         title: Text(
           'Forget Password',
           style: AppStyles.regular16Yellow,
         ),
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(8.0),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.stretch,
-            children: [
-              Container(
+      body: Padding(
+        padding: EdgeInsets.symmetric(horizontal: width * 0.04),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Container(
+              alignment: Alignment.center,
+              // color: AppColors.redColor,
+              child: Image.asset(
+                AppAssets.forgotPasswordImage,
                 alignment: Alignment.center,
-                // color: AppColors.redColor,
-                child: Image.asset(
-                  AppAssets.forgotPasswordImage,
-                  alignment: Alignment.center,
-                ),
               ),
-              SizedBox(height: height * 0.04),
-              Container(
-                decoration: BoxDecoration(
-                    color: AppColors.darkGreyColor,
-                    borderRadius: BorderRadius.circular(16)),
-                child: CustomTextFormField(
-                  prefixIcon: Image.asset(AppAssets.emailIcon),
-                  hintText: 'Email',
-                  hintStyle: AppStyles.regular20White,
-                  colorBorderSide: AppColors.darkGreyColor,
-                ),
+            ),
+            SizedBox(height: height * 0.04),
+            Container(
+              decoration: BoxDecoration(
+                  color: AppColors.darkGreyColor,
+                  borderRadius: BorderRadius.circular(16)),
+              child: CustomTextFormField(
+                prefixIcon: Image.asset(AppAssets.emailIcon),
+                hintText: 'Email',
+                hintStyle: AppStyles.regular20White,
+                colorBorderSide: AppColors.darkGreyColor,
               ),
-              SizedBox(height: height * 0.02),
-              CustomElevatedButton(
-                onPressed: () {},
-                backgroundColor: AppColors.yellowColor,
-                text: 'Verify Email',
-                textStyle: AppStyles.regular20Black,
-              ),
-              SizedBox(height: height * 0.04),
-            ],
-          ),
+            ),
+            SizedBox(height: height * 0.02),
+            CustomElevatedButton(
+              onPressed: () {},
+              backgroundColor: AppColors.yellowColor,
+              text: 'Verify Email',
+              textStyle: AppStyles.regular20Black,
+            ),
+            SizedBox(height: height * 0.04),
+          ],
         ),
       ),
     );
