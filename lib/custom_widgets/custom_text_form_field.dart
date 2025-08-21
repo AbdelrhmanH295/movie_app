@@ -13,7 +13,7 @@ class CustomTextFormField extends StatelessWidget {
   Widget? prefixIcon;
   Widget? suffixIcon;
   OnValidator validator;
-  TextEditingController controller;
+  TextEditingController? controller;
   TextInputType keyBoardType;
   bool obsecureText;
   int? maxLines;
@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.validator,
     this.maxLines,
-    required this.controller,
+    this.controller,
     this.keyBoardType = TextInputType.text,
     this.obsecureText = false,
   });
