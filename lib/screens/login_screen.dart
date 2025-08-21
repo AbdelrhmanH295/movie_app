@@ -3,6 +3,7 @@ import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
+import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
 class LoginScreen extends StatelessWidget {
@@ -63,11 +64,14 @@ class LoginScreen extends StatelessWidget {
               child: TextButton(
                   onPressed: () {
                     // todo : navigate to forget password screen.
+                    Navigator.of(context)
+                        .pushNamed(AppRoutes.forgetScreenRouteName);
                   },
                   child: Text(
                     'Forrget Password ?',
                     textAlign: TextAlign.end,
-                    style: AppStyles.regular14Yellow.copyWith(fontFamily: 'Roboto'),
+                    style: AppStyles.regular14Yellow
+                        .copyWith(fontFamily: 'Roboto'),
                   )),
             ),
             SizedBox(
@@ -88,16 +92,18 @@ class LoginScreen extends StatelessWidget {
               children: [
                 Text(
                   'Dont Have Account ?',
-                  style: AppStyles.regular14White.copyWith(fontFamily: 'Roboto'),
+                  style:
+                      AppStyles.regular14White.copyWith(fontFamily: 'Roboto'),
                 ),
                 TextButton(
                     onPressed: () {
                       // todo : navigate to register screen
+                      Navigator.of(context).pushNamed(AppRoutes.registerRouteName);
                     },
                     child: Text(
                       'Create one',
-                      style: AppStyles.regular14Yellow.copyWith(fontFamily: 'Roboto')
-                          ,
+                      style: AppStyles.regular14Yellow
+                          .copyWith(fontFamily: 'Roboto'),
                     )),
                 SizedBox(
                   height: height * 0.02,
@@ -144,12 +150,12 @@ class LoginScreen extends StatelessWidget {
                   child: Image.asset(AppAssets.googleIcon)),
               backgroundColor: AppColors.yellowColor,
             ),
-             SizedBox(
+            SizedBox(
               height: height * 0.03,
             ),
             Align(
-              alignment: Alignment.topCenter,
-              child: Image.asset(AppAssets.languageSwitchImage))
+                alignment: Alignment.topCenter,
+                child: Image.asset(AppAssets.languageSwitchImage))
           ],
         ),
       ),
