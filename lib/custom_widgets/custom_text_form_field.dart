@@ -29,7 +29,7 @@ class CustomTextFormField extends StatelessWidget {
     this.suffixIcon,
     this.validator,
     this.maxLines,
-     this.controller,
+    this.controller,
     this.keyBoardType = TextInputType.text,
     this.obsecureText = false,
   });

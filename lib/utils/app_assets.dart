@@ -39,4 +39,6 @@ class AppAssets {
   static const String usernameIconUpdateProfile =
       'assets/images/username_icon_updateprofile.png';
   static const String watchListIcon = 'assets/images/watch_list_icon.png';
+  static const String registerScreenImage = 'assets/images/register_image.png';
+  static const String languageSwitchImage = 'assets/images/language_switch.png';
 }
