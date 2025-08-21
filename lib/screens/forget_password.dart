@@ -11,10 +11,10 @@ class ForgetPassword extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-     var height = MediaQuery.of(context).size.height;
+    var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-       backgroundColor: Colors.black,
+      backgroundColor: Colors.black,
       appBar: AppBar(
         centerTitle: true,
         backgroundColor: AppColors.transparentColor,
@@ -28,8 +28,10 @@ class ForgetPassword extends StatelessWidget {
         ),
       ),
       body: SingleChildScrollView(
-        child: Column(
-           crossAxisAlignment: CrossAxisAlignment.stretch,
+        child: Padding(
+          padding: const EdgeInsets.all(8.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
             children: [
               Container(
                 alignment: Alignment.center,
@@ -39,49 +41,28 @@ class ForgetPassword extends StatelessWidget {
                   alignment: Alignment.center,
                 ),
               ),
-               SizedBox(height: height * 0.04),
-                Padding(
-                  padding:   EdgeInsets.symmetric(vertical: width*0.02,
-                  horizontal: height*0.04
-                  ),
-                  child: Container(
-                  decoration: BoxDecoration(
-                      color: AppColors.darkGreyColor,
-                      borderRadius: BorderRadius.circular(16)),
-                  child:  CustomTextFormField(
-                    prefixIcon: Image.asset(AppAssets.emailIcon),
-                    hintText: 'Email',
-                    hintStyle: AppStyles.regular20White,
-                    colorBorderSide: AppColors.darkGreyColor,
-                  ),
-                              ),
-                ),
-              Padding(
-                padding:   EdgeInsets.symmetric(vertical: width*0.04,
-                horizontal: height*0.04
-                ),
-                child: CustomElevatedButton(
-                  onPressed: () {
-                    // todo : change avatar profile
-                   
-                     showModalBottomSheet(
-                      
-                      backgroundColor:Colors.black,
-                      context: context,
-                      builder: (context) {
-                        return Container(
-                          
-                          child: CustomBottomSheet());
-                      },
-                    );
-                  
-                  },
-                  text: 'Verify Email',
-                  textStyle: AppStyles.regular20Black,
+              SizedBox(height: height * 0.04),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColors.darkGreyColor,
+                    borderRadius: BorderRadius.circular(16)),
+                child: CustomTextFormField(
+                  prefixIcon: Image.asset(AppAssets.emailIcon),
+                  hintText: 'Email',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
                 ),
               ),
+              SizedBox(height: height * 0.02),
+              CustomElevatedButton(
+                onPressed: () {},
+                backgroundColor: AppColors.yellowColor,
+                text: 'Verify Email',
+                textStyle: AppStyles.regular20Black,
+              ),
               SizedBox(height: height * 0.04),
-          ],
+            ],
+          ),
         ),
       ),
     );
