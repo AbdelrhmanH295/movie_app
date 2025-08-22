@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.onBoarding ,
+      initialRoute: AppRoutes.onBoarding,
       routes: {
         AppRoutes.loginRouteName: (context) => LoginScreen(),
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      home:  OnBoarding(),
+      home: OnBoarding(),
     );
   }
 }
