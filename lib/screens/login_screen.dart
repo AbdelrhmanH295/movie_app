@@ -78,7 +78,10 @@ class LoginScreen extends StatelessWidget {
               height: height * 0.02,
             ),
             CustomElevatedButton(
-              onPressed: () {},
+              onPressed: () {
+                Navigator.of(context)
+                    .pushNamed(AppRoutes.updateProfileRouteName);
+              },
               text: 'Login',
               textStyle:
                   AppStyles.regular20Black.copyWith(fontFamily: 'Roboto'),
@@ -98,7 +101,8 @@ class LoginScreen extends StatelessWidget {
                 TextButton(
                     onPressed: () {
                       // todo : navigate to register screen
-                      Navigator.of(context).pushNamed(AppRoutes.registerRouteName);
+                      Navigator.of(context)
+                          .pushNamed(AppRoutes.registerRouteName);
                     },
                     child: Text(
                       'Create one',
