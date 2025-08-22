@@ -29,79 +29,81 @@ class ProfileUpdateScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              // color: AppColors.redColor,
-              child: Image.asset(
-                AppAssets.gamer1,
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
                 alignment: Alignment.center,
+                // color: AppColors.redColor,
+                child: Image.asset(
+                  AppAssets.gamer1,
+                  alignment: Alignment.center,
+                ),
               ),
-            ),
-            SizedBox(height: height * 0.04),
-            Container(
-              decoration: BoxDecoration(
-                  color: AppColors.darkGreyColor,
-                  borderRadius: BorderRadius.circular(16)),
-              child: CustomTextFormField(
-                prefixIcon: Image.asset(AppAssets.usernameIconUpdateProfile),
-                hintText: 'John Safwat',
-                hintStyle: AppStyles.regular20White,
-                colorBorderSide: AppColors.darkGreyColor,
+              SizedBox(height: height * 0.04),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColors.darkGreyColor,
+                    borderRadius: BorderRadius.circular(16)),
+                child: CustomTextFormField(
+                  prefixIcon: Image.asset(AppAssets.usernameIconUpdateProfile),
+                  hintText: 'John Safwat',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
+                ),
               ),
-            ),
-            SizedBox(height: height * 0.02),
-            Container(
-              decoration: BoxDecoration(
-                  color: AppColors.darkGreyColor,
-                  borderRadius: BorderRadius.circular(16)),
-              child: CustomTextFormField(
-                prefixIcon: Image.asset(AppAssets.phoneIcon),
-                hintText: '01200000000000',
-                hintStyle: AppStyles.regular20White,
-                colorBorderSide: AppColors.darkGreyColor,
+              SizedBox(height: height * 0.02),
+              Container(
+                decoration: BoxDecoration(
+                    color: AppColors.darkGreyColor,
+                    borderRadius: BorderRadius.circular(16)),
+                child: CustomTextFormField(
+                  prefixIcon: Image.asset(AppAssets.phoneIcon),
+                  hintText: '01200000000000',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
+                ),
               ),
-            ),
-            SizedBox(height: height * 0.03),
-            InkWell(
-              onTap: () {
-                // To do : go to reset password screen
-              },
-              child: Text(
-                'Reset Password',
-                style: AppStyles.regular20White,
+              SizedBox(height: height * 0.03),
+              InkWell(
+                onTap: () {
+                  // To do : go to reset password screen
+                },
+                child: Text(
+                  'Reset Password',
+                  style: AppStyles.regular20White,
+                ),
               ),
-            ),
-            Spacer(),
-            CustomElevatedButton(
-              onPressed: () {},
-              backgroundColor: AppColors.redColor,
-              text: 'Delete Account',
-              textStyle: AppStyles.regular20White,
-            ),
-            SizedBox(height: height * 0.02),
-            CustomElevatedButton(
-              onPressed: () {
-                // todo : change avatar profile
-               
-                 showModalBottomSheet(
-                  
-                  backgroundColor:Colors.black,
-                  context: context,
-                  builder: (context) {
-                    return Container(
-                      
-                      child: CustomBottomSheet());
-                  },
-                );
-              
-              },
-              text: 'Update Data',
-              textStyle: AppStyles.regular20Black,
-            )
-          ],
+              Spacer(),
+              CustomElevatedButton(
+                onPressed: () {},
+                backgroundColor: AppColors.redColor,
+                text: 'Delete Account',
+                textStyle: AppStyles.regular20White,
+              ),
+              SizedBox(height: height * 0.02),
+              CustomElevatedButton(
+                onPressed: () {
+                  // todo : change avatar profile
+                 
+                   showModalBottomSheet(
+                    
+                    backgroundColor:Colors.black,
+                    context: context,
+                    builder: (context) {
+                      return Container(
+                        
+                        child: CustomBottomSheet());
+                    },
+                  );
+                
+                },
+                text: 'Update Data',
+                textStyle: AppStyles.regular20Black,
+              )
+            ],
+          ),
         ),
       ),
     );
