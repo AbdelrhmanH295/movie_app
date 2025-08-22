@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/app_routes.dart';
 
 class OnBoarding extends StatefulWidget {
   const OnBoarding({super.key});
@@ -107,7 +108,6 @@ class _OnBoardingState extends State<OnBoarding> {
 
                       const SizedBox(height: 24),
 
-                      // الأزرار
                       if (index == 0 || index == 1) ...[
                         _buildMainButton(
                           label: index == 0 ? "Explore Now" : "Next",
@@ -125,7 +125,8 @@ class _OnBoardingState extends State<OnBoarding> {
                               : "Next",
                           onPressed: () {
                             if (index == onboardingData.length - 1) {
-                              Navigator.pushReplacementNamed(context, "/home");
+                              Navigator.of(context)
+                                  .pushNamed(AppRoutes.loginRouteName);
                             } else {
                               _controller.nextPage(
                                 duration: const Duration(milliseconds: 400),
