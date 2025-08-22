@@ -23,7 +23,7 @@ class CustomBottomSheet extends StatelessWidget {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Container(
-      padding: EdgeInsets.only(top: 18,bottom: 18,right:8,left: 8),
+      padding: EdgeInsets.symmetric(horizontal: width*0.04,vertical: height*0.02),
         decoration: BoxDecoration(
             color: AppColors.darkGreyColor,
             borderRadius: BorderRadius.circular(24)),

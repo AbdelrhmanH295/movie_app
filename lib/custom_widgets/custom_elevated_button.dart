@@ -15,7 +15,7 @@ class CustomElevatedButton extends StatefulWidget {
       {super.key,
       required this.onPressed,
       required this.text,
-      this.backgroundColor = Colors.yellow,
+      this.backgroundColor = AppColors.yellowColor,
       this.textStyle,
       this.borderColor,
       this.icon = false,
