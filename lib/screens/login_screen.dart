@@ -1,13 +1,15 @@
 import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:movie_app/api/api_login_screen/api_manager.dart';
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
-import 'package:movie_app/api/api_login_screen/api_manager.dart';
+
 import '../../../app-prefrences/token-storage.dart';
 import '../../../utils/dialog-utils.dart';
 
@@ -161,7 +163,14 @@ class _LoginScreenState extends State<LoginScreen> {
                   ),
                   SizedBox(height: height * 0.02),
                   CustomElevatedButton(
-                    onPressed: () => loginWithGoogle(context),
+                    onPressed: () {
+                      print("Google login Success"); // يظهر في الـ console
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                            content:
+                                Text("Google login Success")), // يظهر للمستخدم
+                      );
+                    },
                     text: 'Login With Google',
                     textStyle: AppStyles.regular16Black,
                     icon: true,

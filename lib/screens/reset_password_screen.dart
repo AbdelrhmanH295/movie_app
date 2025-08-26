@@ -1,19 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/custom_widgets/custom_bottom_sheet.dart';
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
-import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
-class ProfileUpdateScreen extends StatelessWidget {
-  const ProfileUpdateScreen({super.key});
+class ResetPasswordScreen extends StatelessWidget {
+  const ResetPasswordScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
+
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
@@ -21,7 +20,7 @@ class ProfileUpdateScreen extends StatelessWidget {
         centerTitle: true,
         backgroundColor: AppColors.transparentColor,
         title: Text(
-          'Pick Avatar',
+          'Reset Password',
           style: AppStyles.regular16Yellow,
         ),
       ),
@@ -32,69 +31,69 @@ class ProfileUpdateScreen extends StatelessWidget {
           children: [
             Container(
               alignment: Alignment.center,
-              // color: AppColors.redColor,
               child: Image.asset(
                 AppAssets.gamer1,
                 alignment: Alignment.center,
               ),
             ),
             SizedBox(height: height * 0.04),
+
+            // old password
             Container(
               decoration: BoxDecoration(
                   color: AppColors.darkGreyColor,
                   borderRadius: BorderRadius.circular(16)),
               child: CustomTextFormField(
-                prefixIcon: Image.asset(AppAssets.usernameIconUpdateProfile),
-                hintText: 'John Safwat',
+                prefixIcon: Icon(Icons.lock, color: AppColors.yellowColor),
+                hintText: 'Old password',
                 hintStyle: AppStyles.regular20White,
                 colorBorderSide: AppColors.darkGreyColor,
+                obsecureText: true,
               ),
             ),
             SizedBox(height: height * 0.02),
+            // new password
             Container(
               decoration: BoxDecoration(
                   color: AppColors.darkGreyColor,
                   borderRadius: BorderRadius.circular(16)),
               child: CustomTextFormField(
-                prefixIcon: Image.asset(AppAssets.phoneIcon),
-                hintText: '01200000000000',
+                prefixIcon:
+                    Icon(Icons.lock_reset, color: AppColors.yellowColor),
+                hintText: 'New Password',
                 hintStyle: AppStyles.regular20White,
                 colorBorderSide: AppColors.darkGreyColor,
+                obsecureText: true,
               ),
             ),
-            SizedBox(height: height * 0.03),
-            InkWell(
-              onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.ResetPasswordScreen);
-              },
-              child: Text(
-                'Reset Password',
-                style: AppStyles.regular20White,
+            SizedBox(height: height * 0.02),
+
+            // confirm new password
+            Container(
+              decoration: BoxDecoration(
+                  color: AppColors.darkGreyColor,
+                  borderRadius: BorderRadius.circular(16)),
+              child: CustomTextFormField(
+                prefixIcon:
+                    Icon(Icons.check_circle, color: AppColors.yellowColor),
+                hintText: 'Confirm new password',
+                hintStyle: AppStyles.regular20White,
+                colorBorderSide: AppColors.darkGreyColor,
+                obsecureText: true,
               ),
             ),
             Spacer(),
             CustomElevatedButton(
-              onPressed: () {},
-              backgroundColor: AppColors.redColor,
-              text: 'Delete Account',
-              textStyle: AppStyles.regular20White,
-            ),
-            SizedBox(height: height * 0.02),
-            CustomElevatedButton(
               onPressed: () {
-                // todo : change avatar profile
-
-                showModalBottomSheet(
-                  backgroundColor: Colors.black,
-                  context: context,
-                  builder: (context) {
-                    return Container(child: CustomBottomSheet());
-                  },
+                // todo : implement reset logic
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text("Password reset successfully!")),
                 );
               },
-              text: 'Update Data',
+              backgroundColor: AppColors.yellowColor,
+              text: 'Confirm Reset',
               textStyle: AppStyles.regular20Black,
-            )
+            ),
           ],
         ),
       ),
