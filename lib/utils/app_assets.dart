@@ -41,4 +41,6 @@ class AppAssets {
   static const String watchListIcon = 'assets/images/watch_list_icon.png';
   static const String registerScreenImage = 'assets/images/register_image.png';
   static const String languageSwitchImage = 'assets/images/language_switch.png';
+  static const String searchIconSelected = 'assets/images/search_icon_selected.png';
+  static const String searchIconUnSelected = 'assets/images/search_icon_unselected.png';
 }

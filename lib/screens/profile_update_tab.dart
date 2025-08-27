@@ -6,15 +6,15 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
-class ProfileUpdateScreen extends StatelessWidget {
-  const ProfileUpdateScreen({super.key});
+class ProfileUpdateTab extends StatelessWidget {
+  const ProfileUpdateTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
         iconTheme: IconThemeData(color: AppColors.yellowColor),
         centerTitle: true,
