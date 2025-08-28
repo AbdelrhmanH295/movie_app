@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:movie_app/api/api_register_screen/api_manager.dart';
+import 'package:movie_app/api/app-prefrences/user_storage.dart';
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
@@ -60,42 +61,54 @@ class _RegisterScreenState extends State<RegisterScreen> {
     super.dispose();
   }
 
-  Future<void> _onRegister() async {
-    if (!_formKey.currentState!.validate()) return;
+  
 
-    setState(() => _isLoading = true);
+Future<void> _onRegister() async {
+  if (!_formKey.currentState!.validate()) return;
 
-    try {
-      final request = RegisterRequest(
-        name: _nameController.text.trim(),
-        email: _emailController.text.trim(),
-        password: _passwordController.text.trim(),
-        confirmPassword: _confirmPasswordController.text.trim(),
-        phone: _phoneController.text.trim(),
-       // avaterId: selectedAvatarIndex,
-      );
+  setState(() => _isLoading = true);
 
-      final result = await ApiManager.registerUser(request);
-      print(result);
+  try {
+    final request = RegisterRequest(
+      name: _nameController.text.trim(),
+      email: _emailController.text.trim(),
+      password: _passwordController.text.trim(),
+      confirmPassword: _confirmPasswordController.text.trim(),
+      phone: _phoneController.text.trim(),
+      avaterId: selectedAvatarIndex,
+    );
 
-      if (result['status'] == 'success' || result['success'] == true) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(result['message'] ?? 'Registration successful!')),
-        );
-        Navigator.pop(context);
-      } else {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(content: Text(result['message'] ?? result['error'] ?? 'Registration failed')),
-        );
-      }
-    } catch (e) {
+    final result = await ApiManager.registerUser(request);
+    print(result);
+
+    if (result['status'] == 'success' || result['success'] == true) {
+      // ✅ حفظ البيانات في SharedPreferences
+      await UserStorage.saveUser({
+        "id": result["data"]["_id"] ?? "",   // أو "id" حسب الـ API
+        "name": result["data"]["name"] ?? _nameController.text.trim(),
+        "email": result["data"]["email"] ?? _emailController.text.trim(),
+        "phone": result["data"]["phone"] ?? _phoneController.text.trim(),
+      });
+
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(content: Text('Error: ${e.toString()}')),
+        SnackBar(content: Text(result['message'] ?? 'Registration successful!')),
       );
-    } finally {
-      setState(() => _isLoading = false);
+
+      Navigator.pop(context);
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(content: Text(result['message'] ?? result['error'] ?? 'Registration failed')),
+      );
     }
+  } catch (e) {
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text('Error: ${e.toString()}')),
+    );
+  } finally {
+    setState(() => _isLoading = false);
   }
+}
+
 
   @override
   Widget build(BuildContext context) {
