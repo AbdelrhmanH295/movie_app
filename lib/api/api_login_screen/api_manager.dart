@@ -1,7 +1,6 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-// import 'package:movies_app/model/register_response.dart';
 import 'package:movie_app/model/login_response.dart';
 
 import 'api-constant.dart';
