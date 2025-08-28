@@ -72,7 +72,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
         password: _passwordController.text.trim(),
         confirmPassword: _confirmPasswordController.text.trim(),
         phone: _phoneController.text.trim(),
-       // avaterId: selectedAvatarIndex,
+         avaterId: selectedAvatarIndex,
       );
 
       final result = await ApiManager.registerUser(request);
