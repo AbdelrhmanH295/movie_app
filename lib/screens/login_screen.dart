@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movie_app/api/api_login_screen/api_manager.dart';
+import 'package:movie_app/app-prefrences/user_storage.dart';
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
@@ -14,7 +15,7 @@ import '../../../app-prefrences/token-storage.dart';
 import '../../../utils/dialog-utils.dart';
 
 class LoginScreen extends StatefulWidget {
-  const LoginScreen({super.key});
+  LoginScreen({super.key});
   @override
   State<LoginScreen> createState() => _LoginScreenState();
 }
@@ -37,7 +38,6 @@ class _LoginScreenState extends State<LoginScreen> {
   Widget build(BuildContext context) {
     var width = MediaQuery.of(context).size.width;
     var height = MediaQuery.of(context).size.height;
-    // var languageProvider = Provider.of<LanguageProvider>(context);
 
     return Scaffold(
       backgroundColor: AppColors.blackColor,
@@ -201,37 +201,49 @@ class _LoginScreenState extends State<LoginScreen> {
       final password = passwordController.text.trim();
 
       try {
-        // show loading
+        // إظهار شاشة التحميل
         DialogUtils.showLopading(
             textLoading: "Logging in...", context: context);
 
+        // تنفيذ طلب تسجيل الدخول
         final response = await ApiManager.login(email, password);
 
-        // hide loading
+        // إخفاء شاشة التحميل
         DialogUtils.hideLoading(context: context);
 
         if (response.message == "Success Login") {
           if (response.token != null) {
+            // حفظ التوكن
             await TokenStorage.saveToken(response.token!);
+            debugPrint("Saved Token: ${response.token!}");
           }
 
-          // show success msg
+          // حفظ الإيميل والباسورد
+          await UserStorage.saveLogin(email, password);
+
+          // قراءة البيانات وعرضها في console
+          String? savedEmail = await UserStorage.getEmail();
+          String? savedPassword = await UserStorage.getPassword();
+          debugPrint("Saved Email: $savedEmail");
+          debugPrint("Saved Password: $savedPassword");
+
+          // عرض رسالة نجاح
           DialogUtils.showMsg(
             context: context,
             title: "Success",
             msg: "Login Successful",
             posActionName: "OK",
             // posAction: () {
+            //   // الانتقال للشاشة الرئيسية
             //   Navigator.pushNamedAndRemoveUntil(
             //     context,
             //     AppRoutes.homeScreendRouteName,
             //         (route) => true,
             //   );
-            // },
+            // }
           );
         } else {
-          //server error
-          //show msg
+          // رسالة فشل من السيرفر
           DialogUtils.showMsg(
             context: context,
             title: "Login Failed",
@@ -239,9 +251,7 @@ class _LoginScreenState extends State<LoginScreen> {
             posActionName: "Ok",
           );
         }
-      }
-      //client error
-      on SocketException {
+      } on SocketException {
         DialogUtils.hideLoading(context: context);
         DialogUtils.showMsg(
           context: context,
@@ -250,7 +260,6 @@ class _LoginScreenState extends State<LoginScreen> {
           posActionName: "Retry",
         );
       } catch (e) {
-        //hide loading
         DialogUtils.hideLoading(context: context);
         DialogUtils.showMsg(
           context: context,
@@ -261,6 +270,77 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
   }
+
+  // void login() async {
+  //   if (formKey.currentState?.validate() == true) {
+  //     final email = emailController.text.trim();
+  //     final password = passwordController.text.trim();
+  //
+  //     // await UserStorage.saveToken(email);
+  //     // await UserStorage.saveToken(password);
+  //     //  await UserStorage.saveLogin(email, password);
+  //
+  //     try {
+  //       // show loading
+  //       DialogUtils.showLopading(
+  //           textLoading: "Logging in...", context: context);
+  //
+  //       final response = await ApiManager.login(email, password);
+  //
+  //       // hide loading
+  //       DialogUtils.hideLoading(context: context);
+  //
+  //       if (response.message == "Success Login") {
+  //         if (response.token != null) {
+  //           await TokenStorage.saveToken(response.token!);
+  //         }
+  //
+  //         // show success msg
+  //         DialogUtils.showMsg(
+  //           context: context,
+  //           title: "Success",
+  //           msg: "Login Successful",
+  //           posActionName: "OK",
+  //           // posAction: () {
+  //           //   Navigator.pushNamedAndRemoveUntil(
+  //           //     context,
+  //           //     AppRoutes.homeScreendRouteName,
+  //           //         (route) => true,
+  //           //   );
+  //           // },
+  //         );
+  //       } else {
+  //         //server error
+  //         //show msg
+  //         DialogUtils.showMsg(
+  //           context: context,
+  //           title: "Login Failed",
+  //           msg: response.message,
+  //           posActionName: "Ok",
+  //         );
+  //       }
+  //     }
+  //     //client error
+  //     on SocketException {
+  //       DialogUtils.hideLoading(context: context);
+  //       DialogUtils.showMsg(
+  //         context: context,
+  //         title: "No Internet",
+  //         msg: "Please check your internet connection and try again.",
+  //         posActionName: "Retry",
+  //       );
+  //     } catch (e) {
+  //       //hide loading
+  //       DialogUtils.hideLoading(context: context);
+  //       DialogUtils.showMsg(
+  //         context: context,
+  //         title: "Login Failed",
+  //         msg: e.toString().replaceFirst("Exception:", "").trim(),
+  //         posActionName: "Ok",
+  //       );
+  //     }
+  //   }
+  // }
 
   Future loginWithGoogle(BuildContext context) async {
     try {
