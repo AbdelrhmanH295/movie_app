@@ -47,6 +47,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     _pageController = PageController(viewportFraction: 0.4, initialPage: 0);
+     selectedAvatarIndex = 0;
   }
 
   @override
@@ -108,7 +109,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
           iconTheme: IconThemeData(color: AppColors.yellowColor),
           backgroundColor: AppColors.transparentColor,
           title: Text('Register', style: AppStyles.regular16Yellow),
-          centerTitle: true,
+          centerTitle: true,toolbarHeight: 40,
         ),
         body: Padding(
           padding: EdgeInsets.symmetric(horizontal: height * 0.02),
@@ -147,11 +148,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                     selectedAvatarIndex = index;
                                   });
                                 },
-                                child: CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage: AssetImage(avatarImages[index]),
-                                  backgroundColor: Colors.grey[300],
-                                ),
+                                child:CircleAvatar(
+  backgroundColor: Colors.transparent,
+  child: ClipOval(
+    child: Image.asset(
+      avatarImages[index],
+      fit: BoxFit.cover,  // أو contain لو عايز الصورة كلها
+      width: 110,
+      height: 110,
+    ),
+  ),
+)
+
                               ),
                             );
                           },
