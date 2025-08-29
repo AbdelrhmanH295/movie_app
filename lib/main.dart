@@ -18,14 +18,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.onBoarding,
+      initialRoute: AppRoutes.updateProfileRouteName,
       routes: {
         AppRoutes.loginRouteName: (context) => LoginScreen(),
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
         AppRoutes.forgetScreenRouteName: (context) => ForgetPassword(),
         AppRoutes.updateProfileRouteName: (context) => ProfileUpdateScreen(),
         AppRoutes.onBoarding: (context) => OnBoarding(),
-        AppRoutes.ResetPasswordScreen: (context) => ResetPasswordScreen(),
+        AppRoutes.resetpasswordRouteName: (context) => ResetPasswordScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

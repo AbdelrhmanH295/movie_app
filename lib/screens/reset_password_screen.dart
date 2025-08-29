@@ -5,8 +5,19 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
-class ResetPasswordScreen extends StatelessWidget {
+class ResetPasswordScreen extends StatefulWidget {
   const ResetPasswordScreen({super.key});
+
+  @override
+  State<ResetPasswordScreen> createState() => _ResetPasswordScreenState();
+}
+
+class _ResetPasswordScreenState extends State<ResetPasswordScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  final oldPasswordController = TextEditingController();
+  final newPasswordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -26,75 +37,112 @@ class ResetPasswordScreen extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(18),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              child: Image.asset(
-                AppAssets.gamer1,
+        child: Form(
+          key: _formKey,
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              Container(
                 alignment: Alignment.center,
+                child:
+                    Image.asset(AppAssets.gamer1, alignment: Alignment.center),
               ),
-            ),
-            SizedBox(height: height * 0.04),
+              SizedBox(height: height * 0.04),
 
-            // old password
-            Container(
-              decoration: BoxDecoration(
+              // old password
+              Container(
+                decoration: BoxDecoration(
                   color: AppColors.darkGreyColor,
-                  borderRadius: BorderRadius.circular(16)),
-              child: CustomTextFormField(
-                prefixIcon: Icon(Icons.lock, color: AppColors.yellowColor),
-                hintText: 'Old password',
-                hintStyle: AppStyles.regular20White,
-                colorBorderSide: AppColors.darkGreyColor,
-                obsecureText: true,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: CustomTextFormField(
+                  controller: oldPasswordController,
+                  prefixIcon: Icon(Icons.lock, color: AppColors.yellowColor),
+                  hintText: 'Old password',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
+                  obsecureText: true,
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return "Enter old password";
+                    }
+                    return null;
+                  },
+                ),
               ),
-            ),
-            SizedBox(height: height * 0.02),
-            // new password
-            Container(
-              decoration: BoxDecoration(
-                  color: AppColors.darkGreyColor,
-                  borderRadius: BorderRadius.circular(16)),
-              child: CustomTextFormField(
-                prefixIcon:
-                    Icon(Icons.lock_reset, color: AppColors.yellowColor),
-                hintText: 'New Password',
-                hintStyle: AppStyles.regular20White,
-                colorBorderSide: AppColors.darkGreyColor,
-                obsecureText: true,
-              ),
-            ),
-            SizedBox(height: height * 0.02),
+              SizedBox(height: height * 0.02),
 
-            // confirm new password
-            Container(
-              decoration: BoxDecoration(
+              // new password
+              Container(
+                decoration: BoxDecoration(
                   color: AppColors.darkGreyColor,
-                  borderRadius: BorderRadius.circular(16)),
-              child: CustomTextFormField(
-                prefixIcon:
-                    Icon(Icons.check_circle, color: AppColors.yellowColor),
-                hintText: 'Confirm new password',
-                hintStyle: AppStyles.regular20White,
-                colorBorderSide: AppColors.darkGreyColor,
-                obsecureText: true,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: CustomTextFormField(
+                  controller: newPasswordController,
+                  prefixIcon:
+                      Icon(Icons.lock_reset, color: AppColors.yellowColor),
+                  hintText: 'New Password',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
+                  obsecureText: true,
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return "Enter new password";
+                    }
+                    if (text.length < 8) {
+                      return "Password must be at least 8 characters";
+                    }
+                    return null;
+                  },
+                ),
               ),
-            ),
-            Spacer(),
-            CustomElevatedButton(
-              onPressed: () {
-                // todo : implement reset logic
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text("Password reset successfully!")),
-                );
-              },
-              backgroundColor: AppColors.yellowColor,
-              text: 'Confirm Reset',
-              textStyle: AppStyles.regular20Black,
-            ),
-          ],
+              SizedBox(height: height * 0.02),
+
+              // confirm new password
+              Container(
+                decoration: BoxDecoration(
+                  color: AppColors.darkGreyColor,
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: CustomTextFormField(
+                  controller: confirmPasswordController,
+                  prefixIcon:
+                      Icon(Icons.check_circle, color: AppColors.yellowColor),
+                  hintText: 'Confirm new password',
+                  hintStyle: AppStyles.regular20White,
+                  colorBorderSide: AppColors.darkGreyColor,
+                  obsecureText: true,
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return "Confirm your new password";
+                    }
+                    if (text != newPasswordController.text) {
+                      return "Passwords do not match";
+                    }
+                    return null;
+                  },
+                ),
+              ),
+
+              Spacer(),
+
+              // button
+              CustomElevatedButton(
+                onPressed: () {
+                  if (_formKey.currentState!.validate()) {
+                    // todo : implement reset logic
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(content: Text("Password reset successfully!")),
+                    );
+                  }
+                },
+                backgroundColor: AppColors.yellowColor,
+                text: 'Confirm Reset',
+                textStyle: AppStyles.regular20Black,
+              ),
+            ],
+          ),
         ),
       ),
     );

@@ -65,7 +65,8 @@ class ProfileUpdateScreen extends StatelessWidget {
             SizedBox(height: height * 0.03),
             InkWell(
               onTap: () {
-                Navigator.of(context).pushNamed(AppRoutes.ResetPasswordScreen);
+                Navigator.of(context)
+                    .pushNamed(AppRoutes.resetpasswordRouteName);
               },
               child: Text(
                 'Reset Password',

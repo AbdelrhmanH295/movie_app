@@ -4,5 +4,5 @@ class AppRoutes {
   static const String registerRouteName = 'register_screen';
   static const String updateProfileRouteName = 'updateProfile_screen';
   static const String onBoarding = 'OnBoarding';
-  static const String ResetPasswordScreen = 'resetpassword_screen';
+  static const String resetpasswordRouteName = 'resetPassword_screen';
 }
