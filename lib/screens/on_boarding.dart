@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_routes.dart';
 
 class OnBoarding extends StatefulWidget {
@@ -171,8 +172,8 @@ class _OnBoardingState extends State<OnBoarding> {
       {required String label, required VoidCallback onPressed}) {
     return ElevatedButton(
       style: ElevatedButton.styleFrom(
-        backgroundColor: Colors.yellow,
-        foregroundColor: Colors.black,
+        backgroundColor: AppColors.yellowColor,
+        foregroundColor: AppColors.blackColor,
         minimumSize: const Size(double.infinity, 50),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(12),
