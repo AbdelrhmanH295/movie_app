@@ -48,6 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     _pageController = PageController(viewportFraction: 0.4, initialPage: 0);
+    selectedAvatarIndex = 0;
   }
 
   @override
@@ -132,9 +133,6 @@ Future<void> _onRegister() async {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 children: [
                   const SizedBox(height: 20),
-                 
-
-                  // 🔥 Carousel الأفاتار
                   SizedBox(
                     height: 140,
                     child: PageView.builder(
@@ -160,10 +158,13 @@ Future<void> _onRegister() async {
                                     selectedAvatarIndex = index;
                                   });
                                 },
-                                child: CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage: AssetImage(avatarImages[index]),
-                                  backgroundColor: Colors.grey[300],
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    avatarImages[index],
+                                    fit: BoxFit.cover,
+                                    width: 100,   
+                                    height: 100,
+                                  ),
                                 ),
                               ),
                             );

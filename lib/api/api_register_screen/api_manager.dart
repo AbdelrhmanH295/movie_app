@@ -6,16 +6,7 @@ class ApiManager {
   static String baseUrl = "https://route-movie-apis.vercel.app";
 
   static Future<Map<String, dynamic>> registerUser(RegisterRequest request) async {
-    // هنا بنضيف البارامز في اللينك
-    final url = Uri.parse(
-      "$baseUrl/auth/register"
-      "?name=${request.name}"
-      "&email=${request.email}"
-      "&password=${request.password}"
-      "&confirmPassword=${request.confirmPassword}"
-      "&phone=${request.phone}"
-    );
-
+    final url = Uri.parse("$baseUrl/auth/register");
     try {
       print("🌍 Sending request to: $url");
 
@@ -23,12 +14,15 @@ class ApiManager {
         url,
         headers: {
           "Content-Type": "application/json",
-          "Cache-Control": "no-cache",
-          "Accept": "*/*",
-          "Accept-Encoding": "gzip, deflate, br",
-          "Connection": "keep-alive",
-          "Host": "route-movie-apis.vercel.app",
         },
+        body: jsonEncode({
+          "name": request.name,
+          "email": request.email,
+          "password": request.password,
+          "confirmPassword": request.confirmPassword,
+          "phone": "+2${request.phone}",
+          "avaterId" : request.avaterId
+        }),
       );
 
       print("🔢 Status Code: ${response.statusCode}");
