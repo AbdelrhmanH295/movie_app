@@ -225,14 +225,13 @@ class _LoginScreenState extends State<LoginScreen> {
             title: "Success",
             msg: "Login Successful",
             posActionName: "OK",
-            // posAction: () {
-            //   Navigator.pushNamedAndRemoveUntil(
-            //     context,
-            //     AppRoutes.homeScreendRouteName,
-            //         (route) => true,
-            //   );
-            // }
-          );
+              posAction: () {
+                Navigator.pushNamedAndRemoveUntil(
+                  context,
+                  AppRoutes.homeScreenRouteName,
+                  (route) => true,
+                );
+              });
         } else {
           DialogUtils.showMsg(
             context: context,
