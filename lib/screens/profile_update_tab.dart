@@ -4,24 +4,22 @@ import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
+import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
-class ProfileUpdateScreen extends StatelessWidget {
-  const ProfileUpdateScreen({super.key});
+class ProfileUpdateTab extends StatelessWidget {
+  const ProfileUpdateTab({super.key});
 
   @override
   Widget build(BuildContext context) {
     var height = MediaQuery.of(context).size.height;
     var width = MediaQuery.of(context).size.width;
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
+        iconTheme: IconThemeData(color: AppColors.yellowColor),
         centerTitle: true,
         backgroundColor: AppColors.transparentColor,
-        leading: Icon(
-          Icons.arrow_back,
-          color: AppColors.yellowColor,
-        ),
         title: Text(
           'Pick Avatar',
           style: AppStyles.regular16Yellow,
@@ -67,7 +65,8 @@ class ProfileUpdateScreen extends StatelessWidget {
             SizedBox(height: height * 0.03),
             InkWell(
               onTap: () {
-                // To do : go to reset password screen
+                Navigator.of(context)
+                    .pushNamed(AppRoutes.resetpasswordRouteName);
               },
               child: Text(
                 'Reset Password',
@@ -85,18 +84,14 @@ class ProfileUpdateScreen extends StatelessWidget {
             CustomElevatedButton(
               onPressed: () {
                 // todo : change avatar profile
-               
-                 showModalBottomSheet(
-                  
-                  backgroundColor:Colors.black,
+
+                showModalBottomSheet(
+                  backgroundColor: Colors.black,
                   context: context,
                   builder: (context) {
-                    return Container(
-                      
-                      child: CustomBottomSheet());
+                    return Container(child: CustomBottomSheet());
                   },
                 );
-              
               },
               text: 'Update Data',
               textStyle: AppStyles.regular20Black,

@@ -1,5 +1,5 @@
 class AppAssets {
-   static const String gamer1 = 'assets/images/gamer1.png';
+  static const String gamer1 = 'assets/images/gamer1.png';
   static const String avatar1Image = 'assets/images/avatar1_image.png';
   static const String avatar2Image = 'assets/images/avatar2_image.png';
   static const String avatar3Image = 'assets/images/avatar3_image.png';
@@ -39,4 +39,12 @@ class AppAssets {
   static const String usernameIconUpdateProfile =
       'assets/images/username_icon_updateprofile.png';
   static const String watchListIcon = 'assets/images/watch_list_icon.png';
+  static const String registerScreenImage = 'assets/images/register_image.png';
+  static const String languageSwitchImage = 'assets/images/language_switch.png';
+  static const String searchIconSelected =
+      'assets/images/search_icon_selected.png';
+  static const String searchIconUnSelected =
+      'assets/images/search_icon_unselected.png';
+  static const String watchNowImage = 'assets/images/watch_now.png';
+  static const String availabelNowImage = 'assets/images/available_now.png';
 }
