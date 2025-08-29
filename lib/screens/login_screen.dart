@@ -80,7 +80,7 @@ class LoginScreen extends StatelessWidget {
             CustomElevatedButton(
               onPressed: () {
                 Navigator.of(context)
-                    .pushNamed(AppRoutes.updateProfileRouteName);
+                    .pushNamed(AppRoutes.homeScreenRouteName);
               },
               text: 'Login',
               textStyle:
