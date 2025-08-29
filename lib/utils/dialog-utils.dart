@@ -4,8 +4,8 @@ import 'app_colors.dart';
 import 'app_styles.dart';
 
 class DialogUtils {
-  static void showLopading(
-      {required String textLoading, required BuildContext context}) {
+  static void showLopading({
+    required String textLoading, required BuildContext context}) {
     showDialog(
       barrierDismissible: false,
       context: context,

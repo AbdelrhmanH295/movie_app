@@ -164,11 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: height * 0.02),
                   CustomElevatedButton(
                     onPressed: () {
-                      print("Google login Success"); // يظهر في الـ console
+                      print("Google login Success");
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                            content:
-                                Text("Google login Success")), // يظهر للمستخدم
+                            content: Text("Google login Success")),
                       );
                     },
                     text: 'Login With Google',
