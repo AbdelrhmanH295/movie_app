@@ -7,9 +7,8 @@ import 'package:movie_app/screens/login_screen.dart';
 import 'package:movie_app/screens/on_boarding.dart';
 import 'package:movie_app/screens/profile_update_tab.dart';
 import 'package:movie_app/screens/register_screen.dart';
+import 'package:movie_app/screens/reset_password_screen.dart';
 import 'package:movie_app/screens/search_tab.dart';
-import 'package:movie_app/utils/app_routes.dart';
-import 'package:movie_app/screens/register_screen.dart';
 import 'package:movie_app/utils/app_routes.dart';
 
 void main() {
@@ -23,17 +22,18 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      initialRoute: AppRoutes.onBoarding ,
+      initialRoute: AppRoutes.onBoarding,
       routes: {
         AppRoutes.loginRouteName: (context) => LoginScreen(),
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
         AppRoutes.forgetScreenRouteName: (context) => ForgetPassword(),
         AppRoutes.profileUpdateRouteName: (context) => ProfileUpdateTab(),
         AppRoutes.onBoarding: (context) => OnBoarding(),
-        AppRoutes.homeScreenRouteName : (context) => HomeScreen(),
-        AppRoutes.homeTabRouteName : (context) => HomeTab(),
-        AppRoutes.searchTabRouteName : (context) => SearchTab(),
-        AppRoutes.exploreTabRouteName : (context) => ExploreTab()
+        AppRoutes.homeScreenRouteName: (context) => HomeScreen(),
+        AppRoutes.homeTabRouteName: (context) => HomeTab(),
+        AppRoutes.searchTabRouteName: (context) => SearchTab(),
+        AppRoutes.exploreTabRouteName: (context) => ExploreTab(),
+        AppRoutes.resetpasswordRouteName: (context) => ResetPasswordScreen(),
       },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',

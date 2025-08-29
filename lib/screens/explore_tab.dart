@@ -15,6 +15,7 @@ class ExploreTab extends StatefulWidget {
 class _ExploreTabState extends State<ExploreTab> {
   int currentIndex = 0;
   late Future<Movie?> moviesFuture;
+
   @override
   void initState() {
     moviesFuture = ApiManager.getMovies();

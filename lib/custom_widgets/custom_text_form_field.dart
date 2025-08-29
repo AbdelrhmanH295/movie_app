@@ -5,7 +5,7 @@ import 'package:movie_app/utils/app_styles.dart';
 typedef OnValidator = String? Function(String?)?;
 
 class CustomTextFormField extends StatelessWidget {
-  Color colorBorderSide;
+  Color ? colorBorderSide;
   String? hintText;
   TextStyle? hintStyle;
   String? labelText;
@@ -20,7 +20,7 @@ class CustomTextFormField extends StatelessWidget {
 
   CustomTextFormField({
     super.key,
-    required this.colorBorderSide,
+     required this.colorBorderSide,
     this.hintText,
     this.hintStyle,
     this.labelStyle,

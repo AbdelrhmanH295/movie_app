@@ -143,7 +143,7 @@ class Movies {
       this.mpaRating,
       this.backgroundImage,
       this.backgroundImageOriginal,
-       this.smallCoverImage,
+      this.smallCoverImage,
       this.mediumCoverImage,
       this.largeCoverImage,
       this.state,

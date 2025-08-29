@@ -1,8 +1,8 @@
 import 'dart:convert';
 
+import 'package:http/http.dart' as http;
 import 'package:movie_app/api/api_home_screen/api_constant.dart';
 import 'package:movie_app/model/movie_response.dart';
-import 'package:http/http.dart' as http;
 
 class ApiManager {
   static Future<Movie?> getMovies() async {

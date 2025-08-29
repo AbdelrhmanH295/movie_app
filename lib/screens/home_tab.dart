@@ -1,8 +1,8 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:movie_app/api/api_home_screen/api_manager.dart';
 import 'package:movie_app/model/movie_response.dart';
 import 'package:movie_app/utils/app_assets.dart';
-import 'package:carousel_slider/carousel_slider.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
@@ -16,6 +16,7 @@ class HomeTab extends StatefulWidget {
 class _HomeTabState extends State<HomeTab> {
   int currentIndex = 0;
   late Future<Movie?> moviesFuture;
+
   @override
   void initState() {
     moviesFuture = ApiManager.getMovies();

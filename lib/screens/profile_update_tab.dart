@@ -4,6 +4,7 @@ import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
+import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
 
 class ProfileUpdateTab extends StatelessWidget {
@@ -64,7 +65,8 @@ class ProfileUpdateTab extends StatelessWidget {
             SizedBox(height: height * 0.03),
             InkWell(
               onTap: () {
-                // To do : go to reset password screen
+                Navigator.of(context)
+                    .pushNamed(AppRoutes.resetpasswordRouteName);
               },
               child: Text(
                 'Reset Password',
