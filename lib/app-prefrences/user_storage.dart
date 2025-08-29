@@ -1,14 +1,12 @@
 import 'package:shared_preferences/shared_preferences.dart';
 
 class UserStorage {
-  // مفاتيح SharedPreferences
   static const String _keyUserId = "userId";
   static const String _keyName = "name";
   static const String _keyEmail = "email";
   static const String _keyPhone = "phone";
   static const String _keyPassword = "password";
 
-  /// حفظ بيانات المستخدم بالكامل
   static Future<void> saveUser(Map<String, dynamic> userData) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_keyUserId, userData["id"].toString());
@@ -17,7 +15,6 @@ class UserStorage {
     await prefs.setString(_keyPhone, userData["phone"] ?? "");
   }
 
-  /// قراءة بيانات المستخدم
   static Future<Map<String, String?>> getUser() async {
     final prefs = await SharedPreferences.getInstance();
     return {
@@ -28,62 +25,24 @@ class UserStorage {
     };
   }
 
-  /// حفظ الإيميل وكلمة المرور
   static Future<void> saveLogin(String email, String password) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_keyEmail, email);
     await prefs.setString(_keyPassword, password);
   }
 
-  /// قراءة الإيميل
   static Future<String?> getEmail() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyEmail);
   }
 
-  /// قراءة الباسورد
   static Future<String?> getPassword() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getString(_keyPassword);
   }
 
-  /// مسح كل البيانات
   static Future<void> clearUser() async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.clear();
   }
 }
-
-// import 'package:shared_preferences/shared_preferences.dart';
-//
-// class UserStorage {
-//   static Future<void> saveUser(Map<String, dynamic> userData) async {
-//     final prefs = await SharedPreferences.getInstance();
-//     await prefs.setString("userId", userData["id"].toString());
-//     await prefs.setString("name", userData["name"]);
-//     await prefs.setString("email", userData["email"]);
-//     await prefs.setString("phone", userData["phone"]);
-//   }
-//
-//   static Future<Map<String, String?>> getUser() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     return {
-//       "userId": prefs.getString("userId"),
-//       "name": prefs.getString("name"),
-//       "email": prefs.getString("email"),
-//       "phone": prefs.getString("phone"),
-//     };
-//   }
-//   static Future<void> clearUser() async {
-//     final prefs = await SharedPreferences.getInstance();
-//     await prefs.remove("userId");
-//     await prefs.remove("name");
-//     await prefs.remove("email");
-//     await prefs.remove("phone");
-//   }
-//
-// // static Future<void> clearUser() async {
-//   //   final prefs = await SharedPreferences.getInstance();
-//   //   await prefs.clear();
-//   // }
-// }

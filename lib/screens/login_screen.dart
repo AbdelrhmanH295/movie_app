@@ -164,11 +164,10 @@ class _LoginScreenState extends State<LoginScreen> {
                   SizedBox(height: height * 0.02),
                   CustomElevatedButton(
                     onPressed: () {
-                      print("Google login Success"); // يظهر في الـ console
+                      print("Google login Success");
                       ScaffoldMessenger.of(context).showSnackBar(
                         const SnackBar(
-                            content:
-                                Text("Google login Success")), // يظهر للمستخدم
+                            content: Text("Google login Success")),
                       );
                     },
                     text: 'Login With Google',
@@ -201,40 +200,32 @@ class _LoginScreenState extends State<LoginScreen> {
       final password = passwordController.text.trim();
 
       try {
-        // إظهار شاشة التحميل
         DialogUtils.showLopading(
             textLoading: "Logging in...", context: context);
 
-        // تنفيذ طلب تسجيل الدخول
         final response = await ApiManager.login(email, password);
 
-        // إخفاء شاشة التحميل
         DialogUtils.hideLoading(context: context);
 
         if (response.message == "Success Login") {
           if (response.token != null) {
-            // حفظ التوكن
             await TokenStorage.saveToken(response.token!);
             debugPrint("Saved Token: ${response.token!}");
           }
 
-          // حفظ الإيميل والباسورد
           await UserStorage.saveLogin(email, password);
 
-          // قراءة البيانات وعرضها في console
           String? savedEmail = await UserStorage.getEmail();
           String? savedPassword = await UserStorage.getPassword();
           debugPrint("Saved Email: $savedEmail");
           debugPrint("Saved Password: $savedPassword");
 
-          // عرض رسالة نجاح
           DialogUtils.showMsg(
             context: context,
             title: "Success",
             msg: "Login Successful",
             posActionName: "OK",
             // posAction: () {
-            //   // الانتقال للشاشة الرئيسية
             //   Navigator.pushNamedAndRemoveUntil(
             //     context,
             //     AppRoutes.homeScreendRouteName,
@@ -243,7 +234,6 @@ class _LoginScreenState extends State<LoginScreen> {
             // }
           );
         } else {
-          // رسالة فشل من السيرفر
           DialogUtils.showMsg(
             context: context,
             title: "Login Failed",
@@ -270,77 +260,6 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }
   }
-
-  // void login() async {
-  //   if (formKey.currentState?.validate() == true) {
-  //     final email = emailController.text.trim();
-  //     final password = passwordController.text.trim();
-  //
-  //     // await UserStorage.saveToken(email);
-  //     // await UserStorage.saveToken(password);
-  //     //  await UserStorage.saveLogin(email, password);
-  //
-  //     try {
-  //       // show loading
-  //       DialogUtils.showLopading(
-  //           textLoading: "Logging in...", context: context);
-  //
-  //       final response = await ApiManager.login(email, password);
-  //
-  //       // hide loading
-  //       DialogUtils.hideLoading(context: context);
-  //
-  //       if (response.message == "Success Login") {
-  //         if (response.token != null) {
-  //           await TokenStorage.saveToken(response.token!);
-  //         }
-  //
-  //         // show success msg
-  //         DialogUtils.showMsg(
-  //           context: context,
-  //           title: "Success",
-  //           msg: "Login Successful",
-  //           posActionName: "OK",
-  //           // posAction: () {
-  //           //   Navigator.pushNamedAndRemoveUntil(
-  //           //     context,
-  //           //     AppRoutes.homeScreendRouteName,
-  //           //         (route) => true,
-  //           //   );
-  //           // },
-  //         );
-  //       } else {
-  //         //server error
-  //         //show msg
-  //         DialogUtils.showMsg(
-  //           context: context,
-  //           title: "Login Failed",
-  //           msg: response.message,
-  //           posActionName: "Ok",
-  //         );
-  //       }
-  //     }
-  //     //client error
-  //     on SocketException {
-  //       DialogUtils.hideLoading(context: context);
-  //       DialogUtils.showMsg(
-  //         context: context,
-  //         title: "No Internet",
-  //         msg: "Please check your internet connection and try again.",
-  //         posActionName: "Retry",
-  //       );
-  //     } catch (e) {
-  //       //hide loading
-  //       DialogUtils.hideLoading(context: context);
-  //       DialogUtils.showMsg(
-  //         context: context,
-  //         title: "Login Failed",
-  //         msg: e.toString().replaceFirst("Exception:", "").trim(),
-  //         posActionName: "Ok",
-  //       );
-  //     }
-  //   }
-  // }
 
   Future loginWithGoogle(BuildContext context) async {
     try {
