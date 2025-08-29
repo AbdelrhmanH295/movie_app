@@ -4,7 +4,7 @@ class RegisterRequest {
   final String password;
   final String confirmPassword;
   final String phone;
-  //final int avaterId;  
+   final int avaterId;  
 
   RegisterRequest({
     required this.name,
@@ -12,7 +12,7 @@ class RegisterRequest {
     required this.password,
     required this.confirmPassword,
     required this.phone,  
-   // required this.avaterId,
+     required this.avaterId,
   });
 
   Map<String, dynamic> toJson() {
@@ -22,7 +22,7 @@ class RegisterRequest {
       "password": password,
       "confirmPassword": confirmPassword,
       "phone": phone,
-     // "avaterId": avaterId, // ✅ زي ما في API
+       "avaterId": avaterId,  
     };
   }
 }
