@@ -7,6 +7,7 @@ import 'package:movie_app/api/app-prefrences/user_storage.dart';
 import 'package:movie_app/model/update_profile_request.dart';
 import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
+import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
 import 'package:movie_app/custom_widgets/custom_bottom_sheet.dart';
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
@@ -16,6 +17,8 @@ import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 
 class ProfileUpdateScreen extends StatefulWidget {
   const ProfileUpdateScreen({super.key});
+class ProfileUpdateTab extends StatelessWidget {
+  const ProfileUpdateTab({super.key});
 
   @override
   State<ProfileUpdateScreen> createState() => _ProfileUpdateScreenState();
@@ -163,7 +166,7 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
     final height = MediaQuery.of(context).size.height;
 
     return Scaffold(
-      backgroundColor: Colors.black,
+      backgroundColor: AppColors.blackColor,
       appBar: AppBar(
         iconTheme: IconThemeData(color: AppColors.yellowColor),
         centerTitle: true,
@@ -224,6 +227,8 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
             InkWell(
               onTap: () {
                 // TODO: go to reset password screen
+                Navigator.of(context)
+                    .pushNamed(AppRoutes.resetpasswordRouteName);
               },
               child: Text('Reset Password', style: AppStyles.regular20White),
             ),
@@ -268,3 +273,4 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
     );
   }
 }
+   }
