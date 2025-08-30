@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:movie_app/api/api_register_screen/api_manager.dart' hide ApiManager;
+import 'package:movie_app/api/api_register_screen/api_manager.dart'  hide ApiManager;
 import 'package:movie_app/custom_widgets/custom_elevated_button.dart';
 import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 import 'package:movie_app/utils/app_assets.dart';
