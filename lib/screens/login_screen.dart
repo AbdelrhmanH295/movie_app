@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:movie_app/api/api_register_screen/api_manager.dart'  hide ApiManager;
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:movie_app/api/api_login_screen/api_manager.dart';
 import 'package:movie_app/app-prefrences/user_storage.dart';
@@ -10,6 +11,7 @@ import 'package:movie_app/utils/app_assets.dart';
 import 'package:movie_app/utils/app_colors.dart';
 import 'package:movie_app/utils/app_routes.dart';
 import 'package:movie_app/utils/app_styles.dart';
+import 'package:movie_app/api/api_login_screen/api_manager.dart';
 
 import '../../../app-prefrences/token-storage.dart';
 import '../../../utils/dialog-utils.dart';
