@@ -5,7 +5,7 @@ import 'package:movie_app/screens/home_screen.dart';
 import 'package:movie_app/screens/home_tab.dart';
 import 'package:movie_app/screens/login_screen.dart';
 import 'package:movie_app/screens/on_boarding.dart';
-import 'package:movie_app/screens/profile_update_tab.dart';
+import 'package:movie_app/screens/profile_update_screen.dart';
 import 'package:movie_app/screens/register_screen.dart';
 import 'package:movie_app/screens/reset_password_screen.dart';
 import 'package:movie_app/screens/search_tab.dart';
