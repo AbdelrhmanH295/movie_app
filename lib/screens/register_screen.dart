@@ -48,6 +48,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
   void initState() {
     super.initState();
     _pageController = PageController(viewportFraction: 0.4, initialPage: 0);
+    selectedAvatarIndex = 0;
   }
 
   @override
@@ -160,10 +161,13 @@ Future<void> _onRegister() async {
                                     selectedAvatarIndex = index;
                                   });
                                 },
-                                child: CircleAvatar(
-                                  radius: 50,
-                                  backgroundImage: AssetImage(avatarImages[index]),
-                                  backgroundColor: Colors.grey[300],
+                                child: ClipOval(
+                                  child: Image.asset(
+                                    avatarImages[index],
+                                    fit: BoxFit.cover,
+                                    width: 100,   // لازم يساوي 2 * radius
+                                    height: 100,  // لازم يساوي 2 * radius
+                                  ),
                                 ),
                               ),
                             );
