@@ -15,7 +15,7 @@ class CustomTextFormField extends StatelessWidget {
   OnValidator validator;
   TextEditingController ? controller;
   TextInputType keyBoardType;
-  bool obsecureText;
+   bool obsecureText;
   int? maxLines;
 
   CustomTextFormField({
@@ -31,7 +31,7 @@ class CustomTextFormField extends StatelessWidget {
     this.maxLines,
     this.controller,
     this.keyBoardType = TextInputType.text,
-    this.obsecureText = false,
+    this.obsecureText = false,   bool? obscureText,
   });
 
   @override
@@ -66,7 +66,7 @@ class CustomTextFormField extends StatelessWidget {
       validator: validator,
       controller: controller,
       keyboardType: keyBoardType,
-      obscureText: obsecureText,
+       obscureText: obsecureText,
     );
   }
 

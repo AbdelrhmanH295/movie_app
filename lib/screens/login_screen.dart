@@ -24,10 +24,10 @@ class _LoginScreenState extends State<LoginScreen> {
   final formKey = GlobalKey<FormState>();
 
   TextEditingController emailController =
-      TextEditingController(text: "route@gmail.com");
+  TextEditingController(text: "route@gmail.com");
 
   TextEditingController passwordController =
-      TextEditingController(text: "Route123@");
+  TextEditingController(text: "Route123@");
 
   bool obscure = true;
 
@@ -221,15 +221,15 @@ class _LoginScreenState extends State<LoginScreen> {
           debugPrint("Saved Password: $savedPassword");
 
           DialogUtils.showMsg(
-            context: context,
-            title: "Success",
-            msg: "Login Successful",
-            posActionName: "OK",
+              context: context,
+              title: "Success",
+              msg: "Login Successful",
+              posActionName: "OK",
               posAction: () {
                 Navigator.pushNamedAndRemoveUntil(
                   context,
                   AppRoutes.homeScreenRouteName,
-                  (route) => true,
+                      (route) => true,
                 );
               });
         } else {
@@ -300,5 +300,3 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
 }
-
-

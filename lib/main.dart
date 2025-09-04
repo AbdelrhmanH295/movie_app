@@ -5,7 +5,7 @@ import 'package:movie_app/screens/home_screen.dart';
 import 'package:movie_app/screens/home_tab.dart';
 import 'package:movie_app/screens/login_screen.dart';
 import 'package:movie_app/screens/on_boarding.dart';
-import 'package:movie_app/screens/profile_update_tab.dart';
+import 'package:movie_app/screens/profile_update_screen.dart';
 import 'package:movie_app/screens/register_screen.dart';
 import 'package:movie_app/screens/reset_password_screen.dart';
 import 'package:movie_app/screens/search_tab.dart';
@@ -27,7 +27,7 @@ class MyApp extends StatelessWidget {
         AppRoutes.loginRouteName: (context) => LoginScreen(),
         AppRoutes.registerRouteName: (context) => RegisterScreen(),
         AppRoutes.forgetScreenRouteName: (context) => ForgetPassword(),
-        AppRoutes.profileUpdateRouteName: (context) => ProfileUpdateTab(),
+        AppRoutes.profileUpdateRouteName: (context) => ProfileUpdateScreen(),
         AppRoutes.onBoarding: (context) => OnBoarding(),
         AppRoutes.homeScreenRouteName: (context) => HomeScreen(),
         AppRoutes.homeTabRouteName: (context) => HomeTab(),
