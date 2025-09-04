@@ -130,7 +130,10 @@ class _LoginScreenState extends State<LoginScreen> {
                 isLoading
                     ? const Center(child: CircularProgressIndicator())
                     : CustomElevatedButton(
-                        onPressed: _login,
+                        onPressed: () {
+                          Navigator.of(context)
+                              .pushNamed(AppRoutes.updateProfileRouteName);
+                        },
                         text: 'Login',
                         textStyle: AppStyles.regular20Black
                             .copyWith(fontFamily: 'Roboto'),
