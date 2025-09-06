@@ -127,7 +127,7 @@ class _OnBoardingState extends State<OnBoarding> {
                           onPressed: () {
                             if (index == onboardingData.length - 1) {
                               Navigator.of(context)
-                                  .pushNamed(AppRoutes.loginRouteName);
+                                  .pushNamed(AppRoutes.homeScreenRouteName);
                             } else {
                               _controller.nextPage(
                                 duration: const Duration(milliseconds: 400),

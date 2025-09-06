@@ -17,8 +17,7 @@ import 'package:movie_app/custom_widgets/custom_text_form_field.dart';
 
 class ProfileUpdateScreen extends StatefulWidget {
   const ProfileUpdateScreen({super.key});
-class ProfileUpdateTab extends StatelessWidget {
-  const ProfileUpdateTab({super.key});
+ 
 
   @override
   State<ProfileUpdateScreen> createState() => _ProfileUpdateScreenState();
@@ -273,4 +272,4 @@ class _ProfileUpdateScreenState extends State<ProfileUpdateScreen> {
     );
   }
 }
-   }
+   
